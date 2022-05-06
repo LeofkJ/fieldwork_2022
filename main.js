@@ -305,6 +305,8 @@ for (const colour of fillColours) {
   legendDiv.appendChild(legendSpan)
   legendDiv.appendChild(legendText)
   document.getElementById('year-legend').appendChild(legendDiv)
+  colourArray.push(colour.year)
+  colourArray.push(colour.colour)
 }
 
 colourArray.push("blue")
