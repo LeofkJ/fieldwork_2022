@@ -9,7 +9,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmFyaXNrIiwiYSI6ImNrbjk5cGxoMjE1cHIydm4xN
 
 const SHOWSCALE = true
 const SHOWGEOCODER = true
-const SHOWDISTANCEMEASURE = true
+const SHOWDISTANCEMEASURE = false
 const SHOWCOORDINATES = true
 
 // ############### CHANGE COLOURS HERE ######################
@@ -340,7 +340,7 @@ var timminsPlots = {
 // Description helpers
 const mortality = (age) => "Year of mortality: " + age
 const cumulativeDefoliation3 = (age) => "Year of cummulative defoliation: " + age
-const noDescription = (age) => ""
+const noDescription = (age) => age
 
 
 const mapLayers = [
@@ -386,7 +386,7 @@ function addMapLayer(layer) {
   });
 
   map.on('click', layer.name, (e) => {
-    const age = e.features[0].properties.years_act;
+    const age = e.features[0].properties.layer;
     new mapboxgl.Popup()
       .setLngLat(e.lngLat)
       .setHTML(layer.description(age))
